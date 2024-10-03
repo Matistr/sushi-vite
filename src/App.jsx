@@ -25,9 +25,9 @@ export function Promos(props){
                 <img src={props.img} alt="promo1" className="promo1" />
                 <h2>Precio: {props.price} </h2>
                 <div>
-                    <button className="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                    <button className="quantity-btn">-</button>
                     <input type="number" value="1" min="1" className="quantity-input"/>
-                    <button className="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    <button className="quantity-btn" >+</button>
                 </div>
             </div>
         </center>
@@ -36,6 +36,6 @@ export function Promos(props){
 
 export function Productos(){
     return <div>
-        
+
     </div>
 }
