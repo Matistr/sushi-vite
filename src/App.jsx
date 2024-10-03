@@ -34,8 +34,20 @@ export function Promos(props){
     </div>
 }
 
-export function Productos(){
+export function Productos(props){
     return <div>
-
+        <center>
+            <div className="card">
+                <h1>{props.titulo} </h1>
+                <br/>
+                <img src={props.img} alt="p1" className="p1" />
+                <h2>Precio: {props.price} </h2>
+                <div>
+                    <button className="quantity-btn">-</button>
+                    <input type="number" value="1" min="1" className="quantity-input"/>
+                    <button className="quantity-btn" >+</button>
+                </div>
+            </div>
+        </center>
     </div>
 }
