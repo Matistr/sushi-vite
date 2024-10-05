@@ -30,16 +30,20 @@ createRoot(document.getElementById('root')).render(<>
         <br />
         <h2>Sushi rolls (9 unidades)</h2>
         <br />
-        <ItemCard img={p1} price='$5.990' titulo='Sushi rolls tempura' altText='Sushi tempura' />
-        <ItemCard img={p2} price='$4.990' titulo='Sushi rolls sesamo' altText='Sushi sesamo' />
-        <ItemCard img={p3} price='$6.990' titulo='Sushi rolls salmon' altText='Sushi salmon' />
-        <ItemCard img={p4} price='$5.990' titulo='Sushi rolls palta' altText='Sushi palta' />
+        <section className='gris'>
+          <ItemCard img={p1} price='$5.990' titulo='Sushi rolls tempura' altText='Sushi tempura' />
+          <ItemCard img={p2} price='$4.990' titulo='Sushi rolls sesamo' altText='Sushi sesamo' />
+          <ItemCard img={p3} price='$6.990' titulo='Sushi rolls salmon' altText='Sushi salmon' />
+          <ItemCard img={p4} price='$5.990' titulo='Sushi rolls palta' altText='Sushi palta' />
+        </section>
         <h1>Bebidas:</h1>
         <br />
-        <ItemCard img={coca} price='$1.990' titulo='Coca-Cola 1.5 lts' altText='Coca-Cola' />
-        <ItemCard img={fanta} price='$1.990' titulo='Fanta 1.5 lts' altText='Fanta' />
-        <ItemCard img={sprite} price='$1.990' titulo='Sprite 1.5 lts' altText='Sprite' />
-        <ItemCard img={kem} price='$1.990' titulo='Kem 1.5 lts' altText='Kem' />
+        <section className='gris'>
+          <ItemCard img={coca} price='$1.990' titulo='Coca-Cola 1.5 lts' altText='Coca-Cola' />
+          <ItemCard img={fanta} price='$1.990' titulo='Fanta 1.5 lts' altText='Fanta' />
+          <ItemCard img={sprite} price='$1.990' titulo='Sprite 1.5 lts' altText='Sprite' />
+          <ItemCard img={kem} price='$1.990' titulo='Kem 1.5 lts' altText='Kem' />
+        </section>
       </center>
     </div>
   </>
