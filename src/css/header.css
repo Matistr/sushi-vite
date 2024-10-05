@@ -85,3 +85,16 @@
     width: 40px;
     text-align: center;
 }
+
+.promos {
+    text-align: center;
+    padding: 20px;
+}
+.promo-item {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 8px;
+}
