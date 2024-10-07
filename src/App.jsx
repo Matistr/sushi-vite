@@ -1,79 +1,63 @@
-import logo from './img/fukusuke.jpg'
-import '../src/css/header.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function increaseQuantity(e) {
-    const input = e.target.previousElementSibling;
-    input.value = parseInt(input.value) + 1;
-}
+import { Header } from './Componentes/Header'
+import { ItemCard } from './Componentes/Carta'
+import { Carro } from './Componentes/Carro'
 
-function decreaseQuantity(e) {
-    const input = e.target.previousElementSibling;
-    if (parseInt(input.value) > 1) {
-        input.value = parseInt(input.value) - 1;
-    }
-}
+import './css/main.css'
 
-function addToCart(productName, price, e) {
-    const promoItem = e.target.parentElement;
-    const quantityInput = promoItem.querySelector('.quantity-input');
-    const quantity = parseInt(quantityInput.value);
+import promo1 from './img/promo1.jpg'
+import promo2 from './img/promo2.jpg'
+import promo3 from './img/promo3.jpg'
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    const existingProductIndex = cart.findIndex(item => item.nombre === productName);
+import p1 from './img/palta.jfif'
+import p2 from './img/salmon.jfif'
+import p3 from './img/tempura.jfif'
+import p4 from './img/sesamo.jfif'
 
-    if (existingProductIndex >= 0) {
-        cart[existingProductIndex].cantidad += quantity;
-    } else {
-        cart.push({
-            nombre: productName,
-            precio: price,
-            cantidad: quantity
-        });
-    }
-    
-    localStorage.setItem('cart', JSON.stringify(cart));
+import coca from './img/coca.jfif'
+import fanta from './img/fanta.jfif'
+import sprite from './img/sprite.jfif'
+import kem from './img/kem.jfif'
 
-    showConfirmationMessage();
-}
-
-function showConfirmationMessage() {
-    const messageElement = document.getElementById('confirmation-message');
-    messageElement.style.display = 'block';
-    setTimeout(() => {
-        messageElement.style.display = 'none';
-    }, 2000);
-}
-
-export function Header(){
-    return <div className='general'>
-        <header className='header'>
-            <a href="" className='link-logo'><img src={logo} alt="logo" className="logo" /></a>
-            <nav>
-                <ul className="ref">
-                    <li className='li'><a className='link' href="https://tinyurl.com/kk5j4bjy">Local</a></li>
-                    <li className='li'><a href="" className='link'>Carta</a></li>
-                    <li className='li'><a href="" className='link'>Carro</a></li>
-                    <li className='li'><a href="" className='link'>Cuenta</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-}
-
-export function ItemCard(props) {
+function App() {
     return (
-        <div className="card">
-            <h1>{props.titulo}</h1>
-            <br />
-            <img src={props.img} className="productos" alt={props.altText} />
-            <h2>Precio: {props.price}</h2>
-            <div>
-                <button className="quantity-btn" onClick={decreaseQuantity}>-</button>
-                <input type="number" value="1" min="1" className="quantity-input" />
-                <button className="quantity-btn" onClick={increaseQuantity}>+</button>
-            </div>
-            <button className="add-to-cart-btn" onClick={(e) => addToCart(props.titulo, props.price, e)}>Agregar al carrito</button>
-        </div>
-    );
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Header />} />
+                <Route path='/Carta' element={
+                    <div className='body'>
+                        <center>
+                            <h1>Promociones:</h1>
+                            <br />
+                            <ItemCard img={promo1} price='$9.990' titulo='Promo 1' altText='Promo 1' />
+                            <ItemCard img={promo2} price='$11.990' titulo='Promo 2' altText='Promo 2' />
+                            <ItemCard img={promo3} price='$13.990' titulo='Promo 3' altText='Promo 3' />
+                            <h1>Productos:</h1>
+                            <br />
+                            <h2>Sushi rolls (9 unidades)</h2>
+                            <br />
+                            <section className='gris'>
+                                <ItemCard img={p1} price='$5.990' titulo='Sushi rolls tempura' altText='Sushi tempura' />
+                                <ItemCard img={p2} price='$4.990' titulo='Sushi rolls sesamo' altText='Sushi sesamo' />
+                                <ItemCard img={p3} price='$6.990' titulo='Sushi rolls salmon' altText='Sushi salmon' />
+                                <ItemCard img={p4} price='$5.990' titulo='Sushi rolls palta' altText='Sushi palta' />
+                            </section>
+                            <h1>Bebidas:</h1>
+                            <br />
+                            <section className='gris'>
+                                <ItemCard img={coca} price='$1.990' titulo='Coca-Cola 1.5 lts' altText='Coca-Cola' />
+                                <ItemCard img={fanta} price='$1.990' titulo='Fanta 1.5 lts' altText='Fanta' />
+                                <ItemCard img={sprite} price='$1.990' titulo='Sprite 1.5 lts' altText='Sprite' />
+                                <ItemCard img={kem} price='$1.990' titulo='Kem 1.5 lts' altText='Kem' />
+                            </section>
+                        </center>
+                    </div>
+                } />
+            <Route path='/Carro' element={<Carro/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
 }
+
+export default App
