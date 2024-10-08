@@ -1,0 +1,13 @@
+.cart-items {
+    background-color: #333235;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.cart-item {
+    background-color: gray;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: white;
+}

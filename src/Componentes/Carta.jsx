@@ -1,4 +1,5 @@
 import '../css/header.css'
+import PropTypes from 'prop-types';
 
 function increaseQuantity(e) {
     const input = e.target.previousElementSibling;
@@ -51,12 +52,29 @@ export function ItemCard(props) {
             <br />
             <img src={props.img} className="productos" alt={props.altText} />
             <h2>Precio: {props.price}</h2>
-            <div>
-                <button className="quantity-btn" onClick={decreaseQuantity}>-</button>
-                <input type="number" value="1" min="1" className="quantity-input" />
-                <button className="quantity-btn" onClick={increaseQuantity}>+</button>
-            </div>
-            <button className="add-to-cart-btn" onClick={(e) => addToCart(props.titulo, props.price, e)}>Agregar al carrito</button>
+            <button className="quantity-btn" onClick={decreaseQuantity}>-</button>
+            <input type="number" defaultValue="1" className="quantity-input" />
+            <button className="quantity-btn" onClick={increaseQuantity}>+</button>
+            <button
+                className="add-to-cart-btn"
+                onClick={(e) => {
+                    const quantityInput = e.target.parentElement.querySelector('.quantity-input');
+                    const quantity = parseInt(quantityInput.value);
+                    addToCart(props.titulo, props.price, quantity, e);
+                }}
+            >
+                Agregar al carrito
+            </button>
         </div>
     );
 }
+
+ItemCard.propTypes = {
+    titulo: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    altText: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    decreaseQuantity: PropTypes.func.isRequired,
+    increaseQuantity: PropTypes.func.isRequired,
+    addToCart: PropTypes.func.isRequired,
+};
