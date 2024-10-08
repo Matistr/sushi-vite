@@ -1,5 +1,5 @@
-import logo from './img/fukusuke.jpg'
-import '../src/css/header.css'
+import logo from '../img/fukusuke.jpg'
+import '../css/header.css'
 
 export function Header(){
     return <div className='general'>

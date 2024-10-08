@@ -1,0 +1,22 @@
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-grid img {
+    transition: transform 0.2s;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+.recomendaciones-item {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: box-shadow 0.2s;
+}
+
+.recomendaciones-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
