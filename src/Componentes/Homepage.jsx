@@ -23,7 +23,7 @@ export function Homepag() {
                     gracias a la disciplina y amor, hemos transmitido nuestro conocimiento sobre el sushi de generación en generación, siendo
                     esta la tercera generación de la familia que decide ser parte de este gran y bello proyecto, enfocados en entregarte una 
                     experiencia de primer nivel tanto culinariamente como en entretenimiento.</p>
-                <p className="mb-4">Ven a visitarnos a nuestro nuevo local ubicado en Maipú 20654....</p>
+                <p className="mb-4">Ven a visitarnos a nuestro nuevo local ubicado en Mar de Chile 516, Maipú</p>
                 <p className="font-semibold">¡Pide ya!</p>
             </section>
 
@@ -33,7 +33,7 @@ export function Homepag() {
                     <div className="opciones-item bg-white shadow-md rounded-lg p-4">
                         <img src={logo} alt="retiro en local" className="mb-2" />
                         <h3 className="text-xl font-semibold">Retiro en local</h3>
-                        <p>Puedes pedir a través de nuestra página y poder retirar tu pedido en nuestro local en .....</p>
+                        <p>Puedes pedir a través de nuestra página y poder retirar tu pedido en nuestro local en  Mar de Chile 516, Maipú</p>
                     </div>
                     <div className="opciones-item bg-white shadow-md rounded-lg p-4">
                         <img src={logoDelivery} alt="despacho" className="mb-2" />
