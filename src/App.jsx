@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Header } from './Componentes/Header.jsx'
 import { Menu } from './Componentes/Menu.jsx'
 import { Carro } from './Componentes/Carro.jsx'
+import { PagRegistro } from './Componentes/Register.jsx'
+import FormularioPersona from './Componentes/Form.jsx'
 
 import './css/main.css'
 
 import { Homepag } from './Componentes/Homepage'
+import { PagLogin } from './Componentes/Login.jsx'
 
 export function App() {
     return (
@@ -17,10 +20,11 @@ export function App() {
                     <Route path="/" element={<Homepag/>} />
                     <Route path="/Carta" element={<Menu/>} />
                     <Route path="/Carro" element={<Carro />} />
+                    <Route path="/Formulario" element={<FormularioPersona />} />
+                    <Route path="/Registro" element={<PagRegistro/>} />
+                    <Route path="/Cuenta" element={<PagLogin/>} />
                 </Routes>
             </div>
         </BrowserRouter>
     )
 }
-
-export default App

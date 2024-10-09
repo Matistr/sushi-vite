@@ -1,5 +1,5 @@
-import '../css/header.css'
 import PropTypes from 'prop-types';
+import '../css/header.css';
 
 function increaseQuantity(e) {
     const input = e.target.previousElementSibling;
@@ -19,52 +19,59 @@ function addToCart(productName, price, e) {
     const quantity = parseInt(quantityInput.value);
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
     const existingProductIndex = cart.findIndex(item => item.nombre === productName);
 
     if (existingProductIndex >= 0) {
         cart[existingProductIndex].cantidad += quantity;
     } else {
+        const formattedPrice = parseFloat(price.replace('$', '').replace('.', ''));
+        
         cart.push({
             nombre: productName,
-            precio: price,
+            precio: formattedPrice,
             cantidad: quantity
         });
     }
-    
-    localStorage.setItem('cart', JSON.stringify(cart));
 
+    localStorage.setItem('cart', JSON.stringify(cart));
     showConfirmationMessage();
 }
 
 function showConfirmationMessage() {
     const messageElement = document.getElementById('confirmation-message');
-    messageElement.style.display = 'block';
-    setTimeout(() => {
-        messageElement.style.display = 'none';
-    }, 2000);
+    
+    if (messageElement) {
+        messageElement.style.display = 'block';
+        setTimeout(() => {
+            messageElement.style.display = 'none';
+        }, 2000);
+    } else {
+        console.error('Elemento de mensaje de confirmación no encontrado.');
+    }
 }
 
-export function ItemCard(props) {
+export function ItemCard({ titulo, img, altText, price }) {
     return (
         <div className="card">
-            <h1>{props.titulo}</h1>
+            <h1>{titulo}</h1>
             <br />
-            <img src={props.img} className="productos" alt={props.altText} />
-            <h2>Precio: {props.price}</h2>
+            <img src={img} className="productos" alt={altText} />
+            <h2>Precio: {price}</h2>
             <button className="quantity-btn" onClick={decreaseQuantity}>-</button>
             <input type="number" defaultValue="1" className="quantity-input" />
             <button className="quantity-btn" onClick={increaseQuantity}>+</button>
             <button
                 className="add-to-cart-btn"
                 onClick={(e) => {
-                    const quantityInput = e.target.parentElement.querySelector('.quantity-input');
-                    const quantity = parseInt(quantityInput.value);
-                    addToCart(props.titulo, props.price, quantity, e);
+                    addToCart(titulo, price, e);
                 }}
             >
                 Agregar al carrito
             </button>
+            <div id="confirmation-message" style={{ display: 'none', color: 'green', marginTop: '10px' }}>
+                ¡Producto añadido al carrito!
+            </div>
         </div>
     );
 }
@@ -73,8 +80,5 @@ ItemCard.propTypes = {
     titulo: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     altText: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    decreaseQuantity: PropTypes.func.isRequired,
-    increaseQuantity: PropTypes.func.isRequired,
-    addToCart: PropTypes.func.isRequired,
+    price: PropTypes.string.isRequired,
 };
