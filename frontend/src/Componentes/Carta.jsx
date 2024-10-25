@@ -2,16 +2,19 @@ import PropTypes from 'prop-types';
 import '../css/header.css';
 
 function increaseQuantity(e) {
-    const input = e.target.previousElementSibling;
+    const promoItem = e.target.closest('.card');
+    const input = promoItem.querySelector('.quantity-input');
     input.value = parseInt(input.value) + 1;
 }
 
 function decreaseQuantity(e) {
-    const input = e.target.previousElementSibling;
+    const promoItem = e.target.closest('.card');
+    const input = promoItem.querySelector('.quantity-input');
     if (parseInt(input.value) > 1) {
         input.value = parseInt(input.value) - 1;
     }
 }
+
 
 function addToCart(productName, price, e) {
     const promoItem = e.target.parentElement;
