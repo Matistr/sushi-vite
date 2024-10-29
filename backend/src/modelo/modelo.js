@@ -17,5 +17,4 @@ const esquema = new mongoose.Schema({
         trim: true
     }
 })
-
 export default mongoose.model('Usuario',esquema)
