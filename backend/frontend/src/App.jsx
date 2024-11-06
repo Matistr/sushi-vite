@@ -31,7 +31,7 @@ export function App() {
                         <Route path="/tareas" element={<TareaPage/>} />
                     </Routes>
                 </div>
-        </BrowserRouter>
+            </BrowserRouter>
         </TarProvider>
     )
 }
