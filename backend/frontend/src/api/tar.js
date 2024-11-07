@@ -1,7 +1,6 @@
 import axios from './axios.js'
 
-export const getTareas = () => axios.get('/Tareas')
-export const getTarea = (id) => axios.get(`/Tareas/${id}`)
-export const crearTareas = (tarea) => axios.post('/Tareas')
-export const updateTareas = (tarea) => axios.put(`/Tareas/${tarea._id}`)
-export const borrarTareas = (id) => axios.delete(`/Tareas/${id}`)
+const API = 'http://localhost:4000/api'
+
+export const tarRequest = (tarea) => axios.post(`${API}/tareas`,tarea)
+export const getTarRequest = (id) => axios.post(`${API}/tareas/:${id}`)

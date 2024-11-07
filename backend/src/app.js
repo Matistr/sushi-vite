@@ -1,7 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import router from './rutas/autRutas.js'
-import tarRutas from './rutas/rutasTareas.js'
+import tarRutas from './rutas/tasRutas.js'
 import cors from 'cors'
 
 const app = express()
